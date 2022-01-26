@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
     @Author: Shiyu FAN
-    @Usage: python3 epav.py command [options]
+    @Usage: python3 epav.py [command] [options]
 """
 import argparse
 import os
@@ -21,7 +21,7 @@ if __name__ == "__main__":
     sub_parser = parser.add_subparsers(dest='subcmd', title='sub commands')
 
     # GffToBed
-    parser_gtb = sub_parser.add_parser("gfftobed", help='Transfer gff to bed format based on chosen '
+    parser_gtb = sub_parser.add_parser("gfftobed", help='Convert gff to bed format based on chosen '
                                                         'gene element, e.g. gene/transcript/mRNA/EXON/CDS/'
                                                         '5UTR/3UTR/upstream or downstream n kb region.')
     parser_gtb.add_argument('-g', '--gff', metavar='<annotation.gff>',
@@ -93,6 +93,31 @@ if __name__ == "__main__":
                            help="Missing value in phenotype file")
     parser_pg.add_argument('-f', '--maf', type=float,
                            help="MAF threshold")
+
+    # Plot
+    parser_pt = sub_parser.add_parser("plot", help='Visualize EPAV result')
+    parser_pt.add_argument('-p', '--pav',
+                           help="Input pav file", type=str)
+    parser_pt.add_argument('-q', '--phenotype',
+                           help="Input phenotype file", type=str)
+    parser_pt.add_argument('-s', '--select',
+                           help="Selected phenotypes, seperated by '/'", type=str)
+    parser_pt.add_argument('-g', '--gwas',
+                           help="GWAS result file", type=str)
+    parser_pt.add_argument('-o', '--output',
+                           help="Output directory", required=True, type=str)
+    parser_pt.add_argument('--height',
+                           help="Plot height", type=float)
+    parser_pt.add_argument('--width',
+                           help="Plot width", type=float)
+    parser_pt.add_argument('--cthreshold',
+                           help="Core element threshold", type=float)
+    parser_pt.add_argument('--sthreshold',
+                           help="Softcore element threshold", type=float)
+    parser_pt.add_argument('--suggestive',
+                           help="Suggestive line p value", type=float)
+    parser_pt.add_argument('--annotation',
+                           help="Annotation p value", type=float)
 
     if len(sys.argv[1:]) == 0:
         parser.print_help()

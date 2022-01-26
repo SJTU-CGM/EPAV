@@ -31,8 +31,17 @@ def add_phenotype(fam, select, phe, sep, miss):
 
 def emmax_gwas(prefix):
     cmd = "emmax-kin -v -h -d 10 %s && " % prefix
-    cmd += "emmax -v -d 10 -t %s -p %s.fam -k %s.hBN.kinf -o %s_emmax" % (prefix, prefix, prefix, prefix)
+    cmd += "emmax -v -d 10 -t %s -p %s.fam -k %s.hBN.kinf -o %s" % (prefix, prefix, prefix, prefix)
     subprocess.call(cmd)
+    # Merge .bim .ps
+    ps = pd.read_table("%s.ps" % prefix, header=None)
+    ps.columns = ["id", "beta", "pval"]
+    bim = pd.read_table("%s.bim" % prefix, header=None)
+    bim.columns = ["chr", "id", "val", "pos", "ref", "alt"]
+    res = pd.merge(ps, bim, on="id")
+    res = res[["id", "chr", "pos", "pval", "beta", "ref", "alt"]]
+    # Output p-value file
+    res.to_csv("%s_emmax.ps" % prefix, header=True, index=False, sep="\t")
 
 
 if __name__ == "__main__":
