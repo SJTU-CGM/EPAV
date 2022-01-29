@@ -1,2 +1,11 @@
-# EPAV
-Element Presence-Absence Variation analysis toolkit (EPAV)
+EPAV : Element Presence-Absence Variation analysis
+============
+
+Introduction
+------------
+
+Installation
+------------
+
+Usage
+------------
