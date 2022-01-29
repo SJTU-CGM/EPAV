@@ -19,7 +19,42 @@ width=800/>
 
 Installation
 ------------
+**Requirements**
 
-Usage
+ - Python 3.6 or later (https://www.python.org/)
+    
+ - Python package
+   
+    Python package pandas is needed. Follow the Installation step, 
+    or you can install the package by yourself.
+   
+ - R 3.6 or later (https://www.r-project.org/)
+    
+    R is utilized for visualization and statistical tests in EPAV
+    toolbox. Please install R first and make sure R and Rscript are
+    under your PATH.
+
+ - R packages 
+
+    Several R packages are needed including ggplot2, ggrepel
+    and ComplexHeatmap packages. Follow the Installation step, 
+    or you can install the packages by yourself.
+
+**Installation procedures** 
+```
+## install EPAV
+git clone --recursive https://github.com/SJTU-CGM/EPAV
+
+## install supporting tools
+cd EPAV/tools
+bash install_tools.sh
+
+## get help
+python3 epav.py --help
+python3 epav.py [command] --help
+```
+
+Workflow
 ------------
-
+<img src="https://github.com/SJTU-CGM/EPAV/blob/master/workflow.png"
+width=800/>
