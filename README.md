@@ -25,7 +25,7 @@ Installation
     
  - Python package
    
-    Python package pandas is needed. Follow the Installation step, 
+    Python package *pandas* is needed. Follow the Installation step, 
     or you can install the package by yourself.
    
  - R 3.6 or later (https://www.r-project.org/)
@@ -36,8 +36,8 @@ Installation
 
  - R packages 
 
-    Several R packages are needed including ggplot2, ggrepel
-    and ComplexHeatmap packages. Follow the Installation step, 
+    Several R packages are needed including *ggplot2*, *ggrepel*
+    and *ComplexHeatmap* packages. Follow the Installation step, 
     or you can install the packages by yourself.
 
 **Installation procedures** 
@@ -46,12 +46,13 @@ Installation
 git clone --recursive https://github.com/SJTU-CGM/EPAV
 
 ## install supporting tools
-cd EPAV/tools
-bash install_tools.sh
+cd ${EPAV_PATH}/tools && bash install_tools.sh
+pip3 install pandas
+Rscript ${EPAV_PATH}/tools/install_r_packages.R
 
 ## get help
-python3 epav.py --help
-python3 epav.py [command] --help
+python3 ${EPAV_PATH}/epav.py --help
+python3 ${EPAV_PATH}/epav.py [command] --help
 ```
 
 Workflow
