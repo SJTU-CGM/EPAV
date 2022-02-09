@@ -25,7 +25,7 @@ Installation
     
  - Python package
    
-    Python package *pandas* is needed. Follow the Installation step, 
+    Python package [pandas][1] is needed. Follow the Installation step, 
     or you can install the package by yourself.
    
  - R 3.6 or later (https://www.r-project.org/)
@@ -36,9 +36,14 @@ Installation
 
  - R packages 
 
-    Several R packages are needed including *ggplot2*, *ggrepel*
-    and *ComplexHeatmap* packages. Follow the Installation step, 
+    R packages [ggplot2][2], [ggrepel][3] and [ComplexHeatmap][4] packages
+    are needed. Follow the Installation step, 
     or you can install the packages by yourself.
+   
+ - Supporting software
+
+    Supporting software [Samtools][5], [PLINK][6] and [EMMAX][7] are needed. 
+    Follow the Installation step, or you can install the software by yourself.
 
 **Installation procedures** 
 ```
@@ -59,3 +64,27 @@ Workflow
 ------------
 <img src="https://github.com/SJTU-CGM/EPAV/blob/master/workflow.png"
 width=800/>
+
+**Usage**
+```
+python3 ${EPAV_PATH}/epav.py [command] [options]
+
+    Available commands:
+        gfftobed        Convert gff to bed format based on chosen element.
+        getdp           Get mapping depth of each base in each chosen gene element.
+        dptocov         Compute coverage of each gene element.
+        covtopav        Determine presence or absence of each gene element.
+        pavgwas         Apply PAV-GWAS.
+        plot            Visualize EPAV result.
+```
+
+
+
+
+[1]: https://pandas.pydata.org/
+[2]: https://github.com/tidyverse/ggplot2
+[3]: https://github.com/slowkow/ggrepel
+[4]: https://github.com/jokergoo/ComplexHeatmap
+[5]: https://github.com/samtools/samtools
+[6]: https://www.cog-genomics.org/plink2
+[7]: https://genome.sph.umich.edu/wiki/EMMAX

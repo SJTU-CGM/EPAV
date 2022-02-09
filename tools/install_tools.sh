@@ -3,9 +3,9 @@
 TOOL_ROOT=$(dirname "$0")
 
 # Install SAMtools
-wget -c "https://sourceforge.net/projects/samtools/files/latest/download"
-tar -jxvf samtools-.*.tar.bz2
-cd samtools-* && ./configue
+wget -c "https://github.com/samtools/samtools/releases/download/1.14/samtools-1.14.tar.bz2"
+tar -jxvf samtools-1.14.tar.bz2
+cd samtools-1.14 && ./configue
 make
 make install
 echo "export PATH=$PATH:$PWD" >> ~/.bash_profile
