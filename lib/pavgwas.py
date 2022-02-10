@@ -6,6 +6,7 @@
 """
 import subprocess
 import argparse
+import os
 import pandas as pd
 
 
@@ -66,6 +67,9 @@ if __name__ == "__main__":
         phenotype = args.select.split("/")
     else:
         phenotype = open(args.phenotype, 'rt').readline().strip().split(args.seperate)
+
+    if not os.path.exists(args.output):
+        os.mkdir(args.output)
 
     for i in phenotype:
         plink_preprocess(args.vcf, "%s/%s" % (args.output, i), args.maf)

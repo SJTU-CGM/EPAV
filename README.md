@@ -36,9 +36,8 @@ Installation
 
  - R packages 
 
-    R packages [ggplot2][2], [ggrepel][3] and [ComplexHeatmap][4] packages
-    are needed. Follow the Installation step, 
-    or you can install the packages by yourself.
+    R packages [ggplot2][2], [ggrepel][3] and [ComplexHeatmap][4] are needed. 
+    Follow the Installation step, or you can install the packages by yourself.
    
  - Supporting software
 
@@ -54,10 +53,6 @@ git clone --recursive https://github.com/SJTU-CGM/EPAV
 cd ${EPAV_PATH}/tools && bash install_tools.sh
 pip3 install pandas
 Rscript ${EPAV_PATH}/tools/install_r_packages.R
-
-## get help
-python3 ${EPAV_PATH}/epav.py --help
-python3 ${EPAV_PATH}/epav.py [command] --help
 ```
 
 Workflow
@@ -69,15 +64,31 @@ width=800/>
 ```
 python3 ${EPAV_PATH}/epav.py [command] [options]
 
-    Available commands:
-        gfftobed        Convert gff to bed format based on chosen element.
-        getdp           Get mapping depth of each base in each chosen gene element.
-        dptocov         Compute coverage of each gene element.
-        covtopav        Determine presence or absence of each gene element.
-        pavgwas         Apply PAV-GWAS.
-        plot            Visualize EPAV result.
+    ## Available commands:
+            gfftobed        Convert gff to bed format based on chosen element.
+            getdp           Get mapping depth of each base in each chosen gene element.
+            dptocov         Compute coverage of each gene element.
+            covtopav        Determine presence or absence of each gene element.
+            pavgwas         Apply PAV-GWAS.
+            plot            Visualize EPAV result.
+
+## get help
+python3 ${EPAV_PATH}/epav.py --help
+python3 ${EPAV_PATH}/epav.py [command] --help
 ```
 
+**Demo**
+
+Follow the instructions below to run the demo.
+```
+cd ${EPAV_PATH}/demo
+
+# 1.Download example data
+bash download_example_data.sh
+
+# 2.Run demo
+bash run_demo.sh
+```
 
 
 

@@ -58,6 +58,9 @@ if __name__ == "__main__":
                         help="Annotation p value", default=0.00001)
     args = parser.parse_args()
 
+    if not os.path.exists(args.output):
+        os.mkdir(args.output)
+
     if args.pav and args.phenotype and args.select:
         plot_heatmap(args.pav,
                      args.phenotype,
